@@ -20,9 +20,9 @@ export default function Carousel({ data, renderComponent }) {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         }}
-        spaceBetween={20}
-        loop={false} // test-friendly behavior
+        loop={false} // 🚫 Disables looping for accurate slide tracking
         speed={400}
+        spaceBetween={20}
         breakpoints={{
           320: { slidesPerView: 2 },
           640: { slidesPerView: 3 },
