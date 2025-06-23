@@ -3,3 +3,21 @@
   position: relative;
   padding: 20px 0;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  pointer-events: auto; /* ✅ ensure clickable */
+}
+
+.swiper-button-prev {
+  left: 0;
+}
+
+.swiper-button-next {
+  right: 0;
+}

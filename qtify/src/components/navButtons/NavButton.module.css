@@ -2,8 +2,7 @@
 .navButton {
   width: 24px;
   height: 24px;
-  position: absolute;
-  top: 40%;
-  z-index: 10;
   cursor: pointer;
+  pointer-events: auto;  /* ✅ ensure clickability */
+  z-index: 20;
 }
