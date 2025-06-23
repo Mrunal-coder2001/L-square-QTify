@@ -7,8 +7,8 @@ const RightNavButton = () => {
   return (
     <img
       src={rightArrow}
-      alt="Next"
-      className={styles.navButton}
+      alt="Right"
+      className={`swiper-button-next ${styles.navButton}`}
     />
   );
 };

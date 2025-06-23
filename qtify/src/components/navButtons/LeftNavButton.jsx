@@ -7,8 +7,8 @@ const LeftNavButton = () => {
   return (
     <img
       src={leftArrow}
-      alt="Previous"
-      className={styles.navButton}
+      alt="Left"
+      className={`swiper-button-prev ${styles.navButton}`}
     />
   );
 };

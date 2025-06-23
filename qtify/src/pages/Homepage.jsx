@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import { Box, Grid, Typography, Tabs, Tab } from "@mui/material";
+import { Box, Typography, Tabs, Tab, Divider } from "@mui/material";
 import Hero from "../components/hero/Hero";
 import Card from "../components/card/Card";
 import Carousel from "../components/carousel/Carousel";
 import FAQPage from "../components/faqpages/FaqPage";
 import SongbottomPage from "../components/songbottom/SongbottomPage";
-import Divider from '@mui/material/Divider';
-
-
 
 export default function Homepage({ topAlbums, newAlbums, songs, filters, searchText }) {
   const [showAllTopAlbums, setShowAllTopAlbums] = useState(false);
@@ -35,9 +32,9 @@ export default function Homepage({ topAlbums, newAlbums, songs, filters, searchT
   return (
     <Box
       sx={{
-        mt: { xs: '183px', sm: '80px', md: '60px' }, // Responsive top margin
+        mt: { xs: '183px', sm: '80px', md: '60px' },
         px: { xs: 2, sm: 4, md: 6 },
-        backgroundColor: "var(--black-bg)", // Custom black background
+        backgroundColor: "var(--black-bg)",
       }}
     >
       <Hero />
@@ -47,17 +44,31 @@ export default function Homepage({ topAlbums, newAlbums, songs, filters, searchT
           <Typography variant="h5" sx={{ color: "white", mb: 2 }}>
             Search Results
           </Typography>
-          <Grid container spacing={2}>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 2,
+              justifyContent: { xs: "center", md: "space-between" },
+            }}
+          >
             {filteredAlbums.length > 0 ? (
               filteredAlbums.map((album, index) => (
-                <Grid item xs={6} sm={4} md={3} lg={2} key={`search-${index}`}>
+                <Box
+                  key={`search-${index}`}
+                  sx={{
+                    flex: "1 1 calc(14.28% - 16px)",
+                    maxWidth: "calc(14.28% - 16px)",
+                    minWidth: "150px",
+                  }}
+                >
                   <Card data={album} type="album" />
-                </Grid>
+                </Box>
               ))
             ) : (
               <Typography sx={{ color: "white" }}>No albums found.</Typography>
             )}
-          </Grid>
+          </Box>
         </Box>
       ) : (
         <>
@@ -86,28 +97,42 @@ export default function Homepage({ topAlbums, newAlbums, songs, filters, searchT
             </Typography>
           </Box>
           {showAllTopAlbums ? (
-            <Grid container spacing={2}>
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 2,
+                justifyContent: { xs: "center", md: "space-between" },
+              }}
+            >
               {topAlbums.map((album, index) => (
-                <Grid item xs={6} sm={4} md={3} lg={2} key={`top-${index}`}>
+                <Box
+                  key={`top-${index}`}
+                  sx={{
+                    flex: "1 1 calc(14.28% - 16px)",
+                    maxWidth: "calc(14.28% - 16px)",
+                    minWidth: "150px",
+                  }}
+                >
                   <Card data={album} type="album" />
-                </Grid>
+                </Box>
               ))}
-            </Grid>
+            </Box>
           ) : (
             <Carousel
               data={topAlbums}
-              renderComponent={(album) => (
-                <Card data={album} type="album" />
-              )}
+              renderComponent={(album) => <Card data={album} type="album" />}
             />
           )}
- <Divider
-  sx={{
-    borderColor: "#34C94B",      // lime green border
-    borderBottomWidth: "2px",    // thickness
-    my: 4                         // vertical spacing (margin top & bottom)
-  }}
-/>
+
+          <Divider
+            sx={{
+              borderColor: "#34C94B",
+              borderBottomWidth: "2px",
+              my: 4,
+            }}
+          />
+
           {/* New Albums */}
           <Box
             sx={{
@@ -133,19 +158,19 @@ export default function Homepage({ topAlbums, newAlbums, songs, filters, searchT
           </Box>
           <Carousel
             data={newAlbums}
-            renderComponent={(album) => (
-              <Card data={album} type="album" />
-            )}
+            renderComponent={(album) => <Card data={album} type="album" />}
           />
         </>
       )}
- <Divider
-  sx={{
-    borderColor: "#34C94B",      // lime green border
-    borderBottomWidth: "2px",    // thickness
-    my: 4                         // vertical spacing (margin top & bottom)
-  }}
-/>
+
+      <Divider
+        sx={{
+          borderColor: "#34C94B",
+          borderBottomWidth: "2px",
+          my: 4,
+        }}
+      />
+
       {/* Songs Section */}
       <Box sx={{ mt: 5, mb: 2 }}>
         <Typography variant="h5" sx={{ color: "white" }}>
@@ -192,23 +217,26 @@ export default function Homepage({ topAlbums, newAlbums, songs, filters, searchT
         data={filteredSongs}
         renderComponent={(song) => <Card data={song} type="song" />}
       />
- <Divider
-  sx={{
-    borderColor: "#34C94B",      // lime green border
-    borderBottomWidth: "2px",    // thickness
-    my: 4                         // vertical spacing (margin top & bottom)
-  }}
-/>
+
+      <Divider
+        sx={{
+          borderColor: "#34C94B",
+          borderBottomWidth: "2px",
+          my: 4,
+        }}
+      />
+
       <FAQPage />
- <Divider
-  sx={{
-    borderColor: "white",      // lime green border
-    borderBottomWidth: "2px",    // thickness
-    my: 4                         // vertical spacing (margin top & bottom)
-  }}
-/>
- <SongbottomPage/>
-      
+
+      <Divider
+        sx={{
+          borderColor: "white",
+          borderBottomWidth: "2px",
+          my: 4,
+        }}
+      />
+
+      <SongbottomPage />
     </Box>
   );
 }
