@@ -1,4 +1,3 @@
-// src/components/navButtons/LeftNavButton.jsx
 import React from "react";
 import leftArrow from "../../assets/leftArrow.png";
 import styles from "./NavButton.module.css";
@@ -8,7 +7,7 @@ const LeftNavButton = () => {
     <img
       src={leftArrow}
       alt="Left"
-      className={`swiper-button-prev ${styles.navButton}`}
+      className={`swiper-button-prev ${styles.navButton} ${styles.left}`}
     />
   );
 };
