@@ -31,12 +31,12 @@ export default function Carousel({ data, renderComponent }) {
         width: "100%",
         overflow: "hidden",
         position: "relative",
-        padding: "0 20px",
+        padding: "0 10px",
       }}
     >
       <Swiper
         modules={[Navigation]}
-        spaceBetween={20}
+        spaceBetween={10}
         slidesPerView={"auto"}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
