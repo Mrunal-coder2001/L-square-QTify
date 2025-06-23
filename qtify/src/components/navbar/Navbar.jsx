@@ -16,7 +16,6 @@ function Navbar({ topAlbums, newAlbums, onSearchChange }) {
           sm: "10px 20px",
           md: "10px 22px",
         },
-      
       }}
     >
       <Toolbar
@@ -39,8 +38,15 @@ function Navbar({ topAlbums, newAlbums, onSearchChange }) {
           },
         }}
       >
-        {/* Logo left */}
-        <Box>
+        {/* Logo left - Fixed: vertical center + left space */}
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-start",
+            ml: { xs: 0, sm: 1.5, md: 2 }, // Add space on the left
+          }}
+        >
           <Logo />
         </Box>
 
