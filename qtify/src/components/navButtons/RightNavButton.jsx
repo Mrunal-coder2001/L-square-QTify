@@ -1,5 +1,6 @@
+// src/components/navButtons/RightNavButton.jsx
 import React from "react";
-import rightArrow from "../../assets/rightArrow.png"; // adjust path if needed
+import rightArrow from "../../assets/rightArrow.png";
 import styles from "./NavButton.module.css";
 
 const RightNavButton = () => {

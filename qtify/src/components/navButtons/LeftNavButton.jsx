@@ -1,5 +1,6 @@
+// src/components/navButtons/LeftNavButton.jsx
 import React from "react";
-import leftArrow from "../../assets/leftArrow.png"; // adjust path if needed
+import leftArrow from "../../assets/leftArrow.png";
 import styles from "./NavButton.module.css";
 
 const LeftNavButton = () => {

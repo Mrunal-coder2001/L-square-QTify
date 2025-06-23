@@ -21,6 +21,8 @@ export default function Carousel({ data, renderComponent }) {
           prevEl: ".swiper-button-prev",
         }}
         spaceBetween={20}
+        loop={false} // test-friendly behavior
+        speed={400}
         breakpoints={{
           320: { slidesPerView: 2 },
           640: { slidesPerView: 3 },
@@ -28,8 +30,10 @@ export default function Carousel({ data, renderComponent }) {
           1024: { slidesPerView: 6 },
         }}
       >
-        {data.map((item, index) => (
-          <SwiperSlide key={index}>{renderComponent(item)}</SwiperSlide>
+        {data.map((item) => (
+          <SwiperSlide key={item.id || item._id || item.title}>
+            {renderComponent(item)}
+          </SwiperSlide>
         ))}
       </Swiper>
     </div>
